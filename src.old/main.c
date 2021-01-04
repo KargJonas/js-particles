@@ -34,13 +34,13 @@ void applyForce(Particle * particleA, Particle * particleB) {
   
   if (force > MAX_FORCE) force = MAX_FORCE;
 
-  // This can be simplified
+  force  /= distance;
+
   Vector normalizedAB = {
-    AB.x / distance * force,
-    AB.y / distance * force
+    AB.x * force,
+    AB.y * force
   };
 
-  // This is a simplified implementation
   particleA->velocity.x += normalizedAB.x;
   particleA->velocity.y += normalizedAB.y;
 
@@ -49,9 +49,9 @@ void applyForce(Particle * particleA, Particle * particleB) {
 }
 
 void updateParticles() {
+#define particle particles[i]
   
   for (int i = 0; i < PARTICLE_COUNT - 1; i++) {
-#define particle particles[i]
 
     particle.velocity.x *= (FRICTION);
     particle.velocity.y *= (FRICTION);
