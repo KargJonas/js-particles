@@ -25,8 +25,8 @@ function applyForce(particleA, particleB) {
   particleA.velocity.x += normalizedAB.x;
   particleA.velocity.y += normalizedAB.y;
 
-  particleB.velocity.x += normalizedAB.x;
-  particleB.velocity.y += normalizedAB.y;
+  particleB.velocity.x -= normalizedAB.x;
+  particleB.velocity.y -= normalizedAB.y;
 }
 
 function updateParticles() {

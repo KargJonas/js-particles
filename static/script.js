@@ -7,6 +7,8 @@ const ctx = cnv.getContext('2d');
 // This array contains detailed information of each particle
 const particles = [];
 
+const PARTICLE_RADIUS = PARTICLE_DIAMETER / 2;
+
 initializeParticleSystem();
 
 function fastDraw() {
@@ -27,7 +29,7 @@ function draw() {
     ctx.beginPath();
     ctx.fillStyle = particle.charge > 0 ? 'red' : 'blue';
     // ctx.moveTo(particle[0], particle[1]);
-    ctx.arc(particle.position.x, particle.position.y, PARTICLE_DIAMETER, 0, 7);
+    ctx.arc(particle.position.x, particle.position.y, PARTICLE_DIAMETER / 2, 0, 7);
     ctx.fill();
   }
 }
